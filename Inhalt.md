@@ -15,7 +15,8 @@ Es gibt veschiedene Arten und weisen ein Python-Befehle auszuführen. Die einfac
 
 Wir wollen so ein "Hallo Welt"-Programm testen. Öffnet man die Prompt kann man den Befehl um "Hallo Welt" auszugeben direkt eingeben. Aussehen sollte das so:
 ```
->>>print("Hallo Welt!") Hallo Welt!
+>>>print("Hallo Welt!")
+Hallo Welt!
 ```
 
 ## Variablen (Basis)
