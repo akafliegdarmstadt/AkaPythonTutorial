@@ -14,8 +14,9 @@ Python gibt es momentan noch in zwei Versionen: Python 2 und Python 3. Die beide
 Es gibt veschiedene Arten und weisen ein Python-Befehle auszuführen. Die einfachste und schnellste Art und weise ist in einer Prompt. Eine Prompt ist ein CMD-Fenster in das man Python-Code schreiben kann, der sofort ausgeführt wird. Das ist praktisch um schnell kleine Programm-Schnipsel zu testen aber nicht um ein volles Programm zu schreiben.
 
 Wir wollen so ein "Hallo Welt"-Programm testen. Öffnet man die Prompt kann man den Befehl um "Hallo Welt" auszugeben direkt eingeben. Aussehen sollte das so:
-``` >>>print("Hallo Welt!")
-Hallo Welt! ```
+```
+>>>print("Hallo Welt!") Hallo Welt!
+```
 
 ## Variablen (Basis)
 
