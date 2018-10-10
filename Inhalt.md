@@ -9,7 +9,11 @@
 
 ## Hallo Welt
 
-evtl
+print
+
+repl
+datei
+notebook
 
 ## Variablen (Basis)
 
@@ -19,11 +23,12 @@ evtl
 
 * Strings (auch format Befehl)
 
-## If und Else
+## If und Else und elif
 
 ## Schleifen
 
 for-Schleife
+while
 
 ## Container
 
@@ -35,12 +40,17 @@ for-Schleife
 * Dictionary
 
 iterieren über Containerwerte
+list comprehensions
 
 ## Funktionen
 
 * normale Funktionsdefiniton
 
 * lambda Gerät
+
+* call by reference/value
+
+* sichtbarkeit global/lokal
 
 ## Klassen
 
@@ -56,4 +66,4 @@ iterieren über Containerwerte
 
 # Sonstiges
 
-## Minimierung/Optimierung
+## Minimierung/Optimierung (scipy)
