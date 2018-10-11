@@ -67,3 +67,5 @@ list comprehensions
 # Sonstiges
 
 ## Minimierung/Optimierung (scipy)
+
+## try und except
