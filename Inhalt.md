@@ -212,6 +212,8 @@ Für das Kreuz- oder Vektorprodukt zweier 3D-Vektoren gibt es die *cross*-Funkti
 [-2, 2, 1]
 ```
 
+%TODO: sum, mean, etc
+
 ## Broadcasting
 
 Bislang wurden Rechenoperationen immer mit Arrays gleicher Form (*shape*) durchgeführt. Liegen Arrays mit ungleicher Form vor, versucht *numpy* dennoch durch sogenanntest Broadcasting sinnvolle Rechenoperationen durchzuführen. Das einfachste Beispiel ist die Multiplikation eines zweidimensionalen Arrays (Matrix) mit einem Skalar. 
@@ -236,8 +238,33 @@ Der skalare Wert wird auf die gleiche Array-Größe gebracht, sodass eine elemen
 
 %TODO fertig machen
 
-## Slicing
+## Indexing
 
+Der grundlegende Zugriff auf Elemente (Indexing) wurde bereits erklärt. In diesem Abschnitt werden weiterführende Aspekte der Indizierung erklärt. Soll beispielsweise auf das letzte Element in einer Dimension zugegriffen werden, kann der Index -1 verwendet werden:
+
+```
+>>> a = np.array([[1, 2, 2],[3,4,5]])
+>>> a[-1, 1]
+4
+```
+
+Oft ist es auch hilfreich auf eine ganze Zeile oder Spalte in einer Matrix zugreifen zu können. Hierfür wird analog zu Listen in der entsprechenden Dimension *:* verwendet:
+
+```
+>>> a = np.array([[1, 2, 2],[3,4,5]])
+>>> a[-1,:]
+[3,4,5]
+```
+
+Eine komplete Spalte einer Matrix ergibt entsprechend
+
+```
+>>> a[:,1]
+[[2],[4]]
+```
+
+Der Doppelpunkt kann außerdem wieder mit Grenzen verwendet werden, um nicht alle Werte der entspechenden Dimension auszuwählen.
+ 
 # Plotten (matplotlib)
 
 # Sonstiges
