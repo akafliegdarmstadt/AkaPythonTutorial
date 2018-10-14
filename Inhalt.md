@@ -19,6 +19,9 @@ notebook
 
 * Zahlen
 
+	* Grundrechenkram
+	* True-divide, floor-divide
+
 * Wahrheitswerte
 
 * Strings (auch format Befehl)
@@ -89,6 +92,20 @@ Die Einträge lassen sich durch Überschreiben mit neuen Werten ändern:
 [5,2,3]
 ```
 
+Wird ein eindimensionales Array mit einer Reihe von Einträgen konstanten Abstandes benötigt, kann die Funktion *arange* verwendet werden:
+
+```
+>>> np.arange(1,4,1)
+[1,2,3]
+```
+
+Der erste übergebene Parameter bildet den Startwert, während der zweite das Ende darstellt. Mit dem dritten Parameter wird der Abstand zwischen den Array einträgen festeglegt. Es lassen sich für alle Parameter nicht ganzzahlige Werte übergeben. Ist der Abstand zwischen benachbarten Array-Einträgen unwichtig, aber die Anzahl von Werten festgelegt kann *linspace* verwendet werden:
+
+```
+>>> np.linspace(1, 2, 101)
+[1.0, 1.01, 1.02, ... , 1.99,2.00]
+```
+
 Neben eindimensionalen Arrays können mehrdimensionale Arrays durch geschachtelte Listen erzeugen. Ein zweidimensionales Array wird beispielsweise mit folgendem Aufruf erstellt:
 
 ```
@@ -142,9 +159,84 @@ Außerdem existiert eine Funktion zur Initialisierung mit zufälligen Werten:
 
 ## Rechenoperationen mit Arrays
 
+Berechnungen mit Arrays gleicher Größe erfolgen im Normalfall Elementweise. So wird die Addition von Arrays mit dem *+*-Operator oder der *add*-Funktion elementweise durchgeführt:
 
+```
+>>> a1 = np.array([[1.2, 1.3],[0.9, 1.2]])
+>>> a2 = np.ones((2,2))
+>>> a1 + a2
+[[2.2, 2.3], [1.9, 2.2]]
+>>> np.add(a1, a2)
+[[2.2, 2.3], [1.9, 2.2]]
+```
 
-## Fortgeschrittener Zugriff auf Array-Elemente
+Analog erfolgt die elementweise Multiplikation von Arrays mit dem __*__-Operator oder der *multiply*-Funktion.
+
+```
+>>> a1 = np.array([[1.2, 1.3],[0.9, 1.2]])
+>>> a2 = np.full((2,2),2)
+>>> a1 * a2
+[[2.4, 2.6], [1.8, 2.4]]
+>>> np.multiply(a1, a2)
+[[2.4, 2.6], [1.8, 2.4]]
+```
+
+Gleiches gilt für die Division, die mit dem Operator */* oder der Funktion *divide* erfolgt und die Subtraktion ( *-* und *subtract*).
+
+Auf zweidimensionale Arrays kann auch das Matrixprodukt angewandt werden. Hierfür gibt es den Operator *@* und die Funktion *matmul*.
+
+```
+>>> a1 = np.array([[1.2, 1.3],[0.9, 1.2]])
+>>> a2 = np.full((2,2),2)
+>>> a1 @ a2
+[[5.0, 5.0], [4.2, 4.2]]
+>>> np.matmul(a1, a2)
+[[5.0, 5.0], [4.2, 4.2]]
+```
+
+Außerdem kann für eindimensionale Arrays (Vektoren) mit der Funktion *dot* das Skalarprodukt (inneres Produkt) gebildet werden:
+
+```
+>>> a1 = np.array([1, 2, 2])
+>>> a2 = np.array([2, 3, 2])
+>>> np.dot(a1, a2)
+[2, 6, 4]
+```
+
+Für das Kreuz- oder Vektorprodukt zweier 3D-Vektoren gibt es die *cross*-Funktion:
+
+```
+>>> a1 = np.array([1, 2, 2])
+>>> a2 = np.array([2, 3, 2])
+>>> np.cross(a1, a2)
+[-2, 2, 1]
+```
+
+## Broadcasting
+
+Bislang wurden Rechenoperationen immer mit Arrays gleicher Form (*shape*) durchgeführt. Liegen Arrays mit ungleicher Form vor, versucht *numpy* dennoch durch sogenanntest Broadcasting sinnvolle Rechenoperationen durchzuführen. Das einfachste Beispiel ist die Multiplikation eines zweidimensionalen Arrays (Matrix) mit einem Skalar. 
+
+```
+>>> a = np.array([1, 2, 2])
+>>> b = 2.0
+>>> a*b
+[2, 4, 4]
+```
+
+Diese Operation führt zum gleichen Ergebnis wie
+
+```
+>>> a = np.array([1, 2, 2])
+>>> b = np.array([2., 2., 2.])
+>>> a*b
+[2, 4, 4]
+```
+
+Der skalare Wert wird auf die gleiche Array-Größe gebracht, sodass eine elementweise Multiplikation möglich ist.
+
+%TODO fertig machen
+
+## Slicing
 
 # Plotten (matplotlib)
 
@@ -153,3 +245,5 @@ Außerdem existiert eine Funktion zur Initialisierung mit zufälligen Werten:
 ## Minimierung/Optimierung (scipy)
 
 ## try und except
+
+## import ausführlich
