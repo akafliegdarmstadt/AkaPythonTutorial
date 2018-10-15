@@ -192,12 +192,16 @@ Mit nur einem Argument (0 bis):
 ```
 
 Mit zwei Argumenten (von bis):
+```
 >>> range(5, 10)
 [5, 6, 7, 8, 9]
+```
 
 Mit drei Argumenten (von bis mit Schrittweite):
+```
 >>> range(0, 1, 0.2)
 [0, 0.2, 0.4, 0.6, 0.8]
+```
 
 Die Zweite, weniger verwendete, Art einer Schleife ist die ```while```-Schleife. Die While-Schleife führt so lange aus wie eine Bedingung gilt.
 ```
