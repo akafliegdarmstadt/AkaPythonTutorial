@@ -166,9 +166,46 @@ else:
   print("Guten Abend.")
 
 ## Schleifen
+Will man ein Stück Code öfter hintereinander ausführen benutzt man Schleifen. Die wichtige Schleife in Python ist die for-Schleife. Eine for-Schleife führt einen Code Block für jedes Element eines Containers aus (Ein Container ist sowas wie eine Menge/Liste, mehr später).
+Zunächst ist es wichtig dass wir eine Liste von Zahlen mit dem ```range``` Befehl erzeugen können.
+```
+>>> for i in range(10):
+      print("{} Bier".format(i))
+0 Bier
+1 Bier
+2 Bier
+3 Bier
+4 Bier
+5 Bier
+6 Bier
+7 Bier
+8 Bier
+9 Bier
+```
 
-for-Schleife
-while
+Den Range-Befehl kann man auf drei Arten aufrufen.
+Mit nur einem Argument (0 bis):
+```
+>>> range(5)
+[0, 1, 2, 3, 4]
+```
+
+Mit zwei Argumenten (von bis):
+>>> range(5, 10)
+[5, 6, 7, 8, 9]
+
+Mit drei Argumenten (von bis mit Schrittweite):
+>>> range(0, 1, 0.2)
+[0, 0.2, 0.4, 0.6, 0.8]
+
+Die Zweite, weniger verwendete, Art einer Schleife ist die ```while```-Schleife. Die While-Schleife führt so lange aus wie eine Bedingung gilt.
+```
+>>> f = 1.0
+>>> while f > 0.1:
+      f = f/2
+>>> f
+0.0625
+```
 
 ## Container
 
