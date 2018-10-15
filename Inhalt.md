@@ -74,6 +74,27 @@ Man kann eine Zahl in einer Variable speichern durch eine Zuweisung.
 4
 ```
 
+Wenn man Texte verarbeitet, nutzt man Strings, den Datentyp für Zeichenketten.
+Strings kann man entweder mit einfachen Hochkommas ', oder doppelten Hochkommas erzeugen ".
+Will man zwei Strings aneinander hängen kann man das mit dem '+' Operator.
+```
+>>> print("Hello")
+Hello
+>>> print("Hello" + " World")
+Hello World
+```
+
+Will man Variablen in einen String einfügen kann man das mit dem '.format' Befehl.
+Man ruft die Methode 'format' des Strings auf und übergibt diesem die Variablen die man Einfügen möchte.
+Die Stelle an der man die Variable einfügen möchte markiert man mit '{}'. Das geht mit beliebig vielen Variablen.
+```
+>>> projektnummer = 45
+>>> print("D-{}".format(projektnummer))
+D-45
+>>> print("{} + {} = {}".format(1, 2, 1+2))
+1 + 2 = 3
+```
+
 * Zahlen
 
 * Wahrheitswerte
