@@ -95,11 +95,37 @@ D-45
 1 + 2 = 3
 ```
 
-* Zahlen
+Eine weitere Art des Datentyps ist ein Wahrheitswert, genannt 'boolean'. Ein boolean kann entweder 'True' oder 'False' sein. Boolean sind insbesondere Interessant für If-Abfragen.
+Operatoren auf Boolean sind:
+* Und: ```&```
+* Oder: ```|```
+* Nicht ```!```
+* XOR: ```^```
 
-* Wahrheitswerte
+Einige dieser Operatoren kann man auch einfach ausschreiben:
+```
+>>> True and False
+False
+>>> False or True
+True
+>>> not True
+False
+```
 
-* Strings (auch format Befehl)
+Will man Zahlen miteinander vergleichen gibt es einige Operatoren für Zahlen die Wahrheitswerte liefern:
+* Echt kleiner: ```<```
+* Kleiner gleich: ```<=```
+* Gleich: ```==```
+* Größer gleich: ```>=```
+* Echt größer: ```>```
+* Ungleich: ```!=```
+
+```
+>>> 2 < 3
+True
+>>> 1 + 1 == 2
+True
+```
 
 ## If und Else und elif
 
