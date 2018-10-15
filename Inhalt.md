@@ -19,6 +19,22 @@ Wir wollen so ein "Hallo Welt"-Programm testen. Öffnet man die Prompt kann man 
 Hallo Welt!
 ```
 
+### Datei
+Eine praktischere Möglichkeit ein Programm auszuführen ist es in eine Datei zu schreiben und dann den Python Interpreter mit dieser Datei aufzurufen. Dazu schreibt man zum Beispiel eine Datei mit dem Inhalt:
+```
+print("Hallo Welt!")
+```
+und ruft aus einem Terminal (CMD) das Skript auf.
+```
+>python hallo.py
+Hallo Welt!
+```
+
+### Notebook
+Eine komfortable Option in Python zu programmieren sind IPython/Jupyter Notebooks. Ein Notebook ist eine Datei die aus einer Mischung aus Text und Code besteht. So eine Datei ist aus jeweiligen Blöcken aufgebaut. Diese Blöcke können einzeln ausgeführt, bearbeitet und Verschoben werden.
+Erstellt man einen Code Block mit der Schaltfläche mit dem Plus kann man dort den jeweilgen Teil des Programms eingeben und dann mit Shift+Enter ausführen.
+In einem Textblock kann auch LaTeX Math verwendet werden um Formeln darzustellen.
+
 ## Variablen (Basis)
 
 * Zahlen
