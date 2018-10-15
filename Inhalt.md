@@ -127,7 +127,43 @@ True
 True
 ```
 
-## If und Else und elif
+## if else und elif
+Will man in seinem Programm unterschiedliche Sachen für unterschiedliche Fälle machen benutzt man eine If-Abfrage. In eine If-Abfrage schreibt man einen Ausdruck der einen Boolean ergibt gefolgt von einem Doppelpunkt und einer neuen Zeile. Alles was dann in und nach der neuen Zeile eingerückt steht wird ausgeführt falls der Wert des Boolean True ist.
+```
+passwort = 'abcdef'
+eingabe = 'letmein'
+
+if passwort == eingabe:
+  print('access granted')
+```
+
+Führt zu:
+```access granted```
+
+Will man noch zusätzlich abfragen ob die Bedingung nicht erfüllt ist benutzt man ein ```else```.
+
+```
+n = 1234
+
+if n % 2 == 0:
+  print("n ist gerade")
+else:
+  print("n ist nicht gerade")
+```
+
+Führt zu:
+```n ist gerade```
+
+Hat man allerdings den Fall dass man zwischen mehr als Zwei Fällen unterscheiden will kann man ein else mit einem if verbinden. Ein ```elif```. Ein elif wird nur ausgewertet wenn das vorherige if falsch war und die aktuelle Bedingung wahr ist.
+```
+stunde = 12
+
+if stunde < 10:
+  print("Guten Morgen.")
+elif stunde < 14:
+  print("Guten Mittag.")
+else:
+  print("Guten Abend.")
 
 ## Schleifen
 
