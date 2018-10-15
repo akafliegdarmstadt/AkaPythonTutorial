@@ -484,11 +484,20 @@ Als Beispiel werden Sinus- und Cosinus-Funktion im gleichen Plot angezeigt.
 ![sinus-plot erweitert](images/sinus-extended.png)
 
 
-
 # Sonstiges
 
 ## Minimierung/Optimierung (scipy)
 
+Neben *numpy* stellt *scipy* viele Funktionen zum wissenschaftlichen Programmieren zur Verfügung. Hierzu gehören Optimierungsfunktionen. Einen Überblick liefert: [scipy-optimization](https://docs.scipy.org/doc/scipy/reference/optimize.html)
+
+
 ## try und except
 
-## import ausführlich
+Treten bei der Ausführung von Code Fehler auf werden Exceptions ausgelöst und die Ausführung des Python-Programmes beendet. Um dies zu verhindern können Exceptions mit *try*-*except*-Blöcken abfangen und auf diese reagiert werden. Vor einem fehleranfälligen Code-Abschnitt wird der *try*-Block begonnen und dahinter mit *except* beendet. Danach folgt Code zum Umgang mit der Aufgetretenen Exception:
+
+```
+try:
+    fehleranfälligefunktion()
+except:
+    räumeauf()
+´´´
