@@ -36,6 +36,43 @@ Erstellt man einen Code Block mit der Schaltfläche mit dem Plus kann man dort d
 In einem Textblock kann auch LaTeX Math verwendet werden um Formeln darzustellen.
 
 ## Variablen (Basis)
+Um ein paar Python ausdrücke auszuprobieren wollen wir ein paar einfache Rechnungen anstellen.
+Das funktioniert ziemlich genau wie man das Erwartet, bzw. von Matlab etc kennt.
+```
+>>> 2 + 2
+4
+>>> 1 - 2*2
+-3
+>>> 5/2
+2.5
+```
+
+Eine Zahl ohne Komma heißt ein Integer. Ein Integer kann nur ganzzahlen darstellen.
+Der Teilen-Operator '/' liefert aber immer eine Kommazahl zurück, zu erkennen and dem Nachkommateil.
+
+```
+>>> 2/3
+0.6666666666667
+>>> 2/2
+1.0
+```
+
+Ganzzahlige Division nutzt den Operator '//'.
+```
+>>> 17//3
+5
+```
+
+Weitere Operatoren sind '\*\*' für Potenzen und '%' für Modulo.
+
+Man kann eine Zahl in einer Variable speichern durch eine Zuweisung.
+```
+>>> nichtpi = 3
+>>> print(nichtpi)
+3
+>>> print(nichtpi + 1)
+4
+```
 
 * Zahlen
 
