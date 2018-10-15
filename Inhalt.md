@@ -263,9 +263,48 @@ Eine komplete Spalte einer Matrix ergibt entsprechend
 [[2],[4]]
 ```
 
-Der Doppelpunkt kann außerdem wieder mit Grenzen verwendet werden, um nicht alle Werte der entspechenden Dimension auszuwählen.
+Der Doppelpunkt kann außerdem mit Grenzen verwendet werden, um nicht alle Werte der entspechenden Dimension auszuwählen.
  
 # Plotten (matplotlib)
+
+Das Standard-Paket zum Plotten ist [matplotlib](https://matplotlib.org/). Es stellt mit pyplot MATLAB ähnliche Funktionen für einfaches, schnelles Plotten zur Verfügung. Weiterführende Funktionen und ein objektorientiertes Interface erlauben den vollen Zugriff auf Plot-Eigenschaften. Im Folgenden werden Grundlagen vorgestellt. Zunächst wird das pyplot-Interface eingebunden:
+
+```
+>>> from matplotlib import pyplot as plt
+```
+
+Dieses steht jetzt unter *plt* zur Verfügung. Ein erster Sinus-Plot wird wie folgt erzeugt:
+
+```
+>>> x = np.linspace(0, 2*np.pi)
+>>> y = np.sin(x)
+>>> plt.plot(x, y)
+>>> plt.show() # im jupyter notebook nicht notwendig
+```
+
+![sinus-plot](images/sinus.png)
+
+Um ein Gitter anzuzeigen, wird die *grid*-Funktion verwendet. Achsenbeschriftungen werden mit *xlabel* und *ylabel* hinzugefügt. Die *title*-Funktion erlaubt das setzen eines Plot-Titels. 
+Weitere Datenreihen können durch wiederholten Aufruf der *plot*-Funktion angezeigt werden. Damit *matplotlib* eine Legende erzeugen kann, kann hierbei ein Label (Parameter *label*) übergeben werden. Datenreihen mit angegebenem Label werden beim Aufruf der *legend*-Funktion automatisch in der Legende angezeigt.
+Als Beispiel werden Sinus- und Cosinus-Funktion im gleichen Plot angezeigt.
+
+```
+>>> x = np.linspace(0, 2*np.pi)
+>>> y1 = np.sin(x)
+>>> y2 = np.cos(y)
+>>> plt.plot(x, y1, label='Sinus')
+>>> plt.plot(x, y2, label='Cosinus')
+>>> plt.xlabel('x')
+>>> plt.ylabel('y')
+>>> plt.legend()
+>>> plt.title('Toller Plot')
+>>> plt.grid()
+>>> plt.show() # im jupyter notebook nicht notwendig
+```
+
+![sinus-plot erweitert](images/sinus-extended.png)
+
+
 
 # Sonstiges
 
