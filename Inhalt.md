@@ -205,7 +205,7 @@ Mit drei Argumenten (von bis mit Schrittweite):
 
 Die Zweite, weniger verwendete, Art einer Schleife ist die ```while```-Schleife. Die While-Schleife führt so lange aus wie eine Bedingung gilt.
 ```
->>> f = 1.0
+>>> f = 1.0e
 >>> while f > 0.1:
       f = f/2
 >>> f
@@ -213,16 +213,73 @@ Die Zweite, weniger verwendete, Art einer Schleife ist die ```while```-Schleife.
 ```
 
 ## Container
+In Python gibt es einige Datentypen die eine Menge an Daten enthalten können. Die wollen wir uns anschauen.
 
-* Tupel
+### Tupel
+Ein Tupel kann man sich vorstellen wie einen Vektor: Eine Liste von Werten mit **fester**, aber beliebiger Größe.
+Tupel werden mit runden Klammern initialisiert.
+Will man auf einen Wert aus einem Tupel zugreifen benutzt man einen Index, der Index wird in Eckige klammern nach dem Tupel geschrieben. Tupel sind nicht veränderbar, ist es einmal initialisiert ist es konstant. Die Werte können nur noch geändert werden indem ein neues Tupel erzeugt wird.
+```
+>>> tupel = (1, 3, 2)
+>>> tupel[0]
+1
+```
 
-* Liste
-  * Slicing
+### Liste
+Eine Liste, auch Array genannt, unterscheidet sich von einem Tupel durch eine veränderliche Größe und dass man Elemente in einer Liste neu zuweisen kann. Indizierung funktioniert gleich. Eine Liste wird durch eckige Klammern erzeugt.
+```
+>>> liste = [3,1,4,1]
+>>> liste[0]
+3
+>>> liste[1] = 2
+>>> liste
+[3,2,4,2]
+```
 
-* Dictionary
+Eine Liste kann durch die Methode 'append' erweitert werden.
+```
+>>> liste.append(5)
+>>> liste
+[3, 2, 4, 1, 5]
+```
 
-iterieren über Containerwerte
-list comprehensions
+Die Länge einer Liste erfährt man durch die eingebaute Funktion 'len' (für lenght).
+```
+>>> len([1, 2, 3])
+3
+```
+
+### List Comprehensions
+Mit List comprehensions kann man Listen aus anderen Listen erzeugen. Man kann zum Beispiel einen Ausdruck auf jedes Element der Liste anwenden und daraus eine neue Liste erzeugen, und die Liste filter, also nur die Elemente übernehmen die einer Bedingung genügen.
+Eine List comprehension besteht aus eckigen Klammern in denen zunächst der anzuwendende Ausdruck steht, gefolgt von einem 'for'-Statement, welches die Variable kennzeichnet die die einzelnen Listenelemente darstellt, darauf können einzelne 'if'-Statements folgen, die etwaige bedingungen angeben.
+
+Wollen wir zum Beispiel alle Zahlen einer Liste quadrieren:
+```
+>>> liste = [1,2,3]
+>>> [x\*\*2 for x in liste]
+[1, 4, 9]
+```
+
+Als weiteres Beispiel wollen wir den Logarithmus aller Zahlen einer Liste errechnen, aber nur für Zahlen größer 1.
+```
+>>> import math
+>>> liste = [0.5, 1, 2, 4]
+>>> [math.log(x) for x in liste if x > 1]
+[0.6931471805599453, 1.3862943611198906]
+```
+(import math muss ausgeführt werden um die math-Bibliothek verfügbar zu machen)
+
+### Dictionary
+Ein Dictionary ist eine Datenstruktur, deren Indizes nicht Zahlen sondern Strings sind. Man kann also jedem String in einem Dictionary einen Wert zuordnen. Dictionaries werden mit geschweiften Klammern initialisiert.
+Dictionaries sind, wie Arrays, veränderbar und können erweitert werden. Zum erweitern eines Dictionaries kann einfach einem Index ein wert zugeordnet werden.
+```
+>>> dict = {'eins': 1, 'zwei': 2, 'fünfundzwanzig':25}
+>>> dict['eins']
+1
+>>> dict['vier'] = 4
+>>> dict['vier']
+4
+```
 
 ## Funktionen
 
