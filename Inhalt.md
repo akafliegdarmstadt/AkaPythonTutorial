@@ -475,7 +475,7 @@ Dagegen können zum Beispiel für ein zweidimensionales Array nur Zeilen oder Sp
 [2,4,6]
 >>> np.sum(a, axis=1)
 [[6],[6]]
-´´´
+```
 
 ## Broadcasting
 
