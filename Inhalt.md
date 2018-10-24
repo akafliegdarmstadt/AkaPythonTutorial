@@ -2,7 +2,10 @@
 
 # Installation
 
-* Anaconda
+In der Regel bietet sich die Installation von Python mit der *Anaconda Distribution* an. Diese bringt Python in einer aktuellen Version, kombiniert mit einer Vielzahl von Paketen mit, was den Installationsaufwand enorm reduziert.
+
+Installationsdateien für alle üblichen Plattformen finden sich unter [Anaconda Download](https://www.anaconda.com/download/).
+
 ## Versionen
 Python gibt es momentan noch in zwei Versionen: Python 2 und Python 3. Die beiden Versionen sind zwar ähnlich, dürfen aber nicht als austauschbar gesehen werden. Python 2 wird nur noch bis 2020 weiterentwickelt und sollte allein deshalb nicht mehr verwendet werden. Trotzdem muss man beachten dass manche Beispiele im Internet nur unter Python 2 funktionieren und ein wenig angepasst werden müssen.
 
@@ -391,11 +394,35 @@ Für das Kreuz- oder Vektorprodukt zweier 3D-Vektoren gibt es die *cross*-Funkti
 [-2, 2, 1]
 ```
 
-%TODO: sum, mean, etc
+### Aggregationsfunktionen
+
+Es gibt außerdem Funktionen wie *sum* um die Summe von Array-Einträgen zu bilden, die zusammenfassenden Charakter haben. Dazu gehören neben *sum* unter anderem:
+* *prod* zum Bestimmen des Produktes der Array-Einträge
+* *mean* zum Bestimmen des arithmetischen Mittelwertes
+
+Beim Aufruf dieser Funktionen kann mithilfe des *axis* Parameters festgelegt über welche Dimensionen des Arrays sie gebildet werden. Ohne Angabe des Paramters wird die Funktion über alle Dimensionen gebildet - Ergebnis ist ein Skalar, z.B.
+
+```
+>>> a = np.array([1,2,3])
+>>> np.sum(a)
+6
+´´´
+
+Dagegen können zum Beispiel für ein zweidimensionales Array nur Zeilen oder Spalten aufaddiert werden:
+
+```
+>>> a = np.array([[1,2,3],[1,2,3]])
+>>> np.sum(a)
+12
+>>> np.sum(a, axis=0)
+[2,4,6]
+>>> np.sum(a, axis=1)
+[[6],[6]]
+´´´
 
 ## Broadcasting
 
-Bislang wurden Rechenoperationen immer mit Arrays gleicher Form (*shape*) durchgeführt. Liegen Arrays mit ungleicher Form vor, versucht *numpy* dennoch durch sogenanntest Broadcasting sinnvolle Rechenoperationen durchzuführen. Das einfachste Beispiel ist die Multiplikation eines zweidimensionalen Arrays (Matrix) mit einem Skalar. 
+Bislang wurden Rechenoperationen immer mit Arrays gleicher Form (*shape*) durchgeführt. Liegen zwei Arrays mit ungleicher Form vor, versucht *numpy* dennoch durch sogenanntest Broadcasting sinnvolle Rechenoperationen durchzuführen. Das einfachste Beispiel ist die Multiplikation eines zweidimensionalen Arrays (Matrix) mit einem Skalar. 
 
 ```
 >>> a = np.array([1, 2, 2])
@@ -415,7 +442,15 @@ Diese Operation führt zum gleichen Ergebnis wie
 
 Der skalare Wert wird auf die gleiche Array-Größe gebracht, sodass eine elementweise Multiplikation möglich ist.
 
-%TODO fertig machen
+Dieses Verhalten wird durch prinzipielle Regeln beschrieben:
+
+ - beginnend bei der letzten Dimension werden die Größen der Dimensionen verglichen
+ - die Größen müssen
+    gleich sein oder eine Dimension die Größe 1 besitzten
+ - wird keine Bedingung erfüllt sind Arrays inkompatibel
+ - in Dimensionen der Größe 1 werden die Werte so oft kopiert, bis Größe der Dimension des zweiten Arrays erreicht ist
+ - nicht beschränkt auf Arrays mit gleicher Anzahl an Dimensionen
+    für fehlende Dimensionen im kleineren Array kann die Größe angenommen werden
 
 ## Indexing
 
@@ -443,7 +478,20 @@ Eine komplete Spalte einer Matrix ergibt entsprechend
 ```
 
 Der Doppelpunkt kann außerdem mit Grenzen verwendet werden, um nicht alle Werte der entspechenden Dimension auszuwählen.
- 
+
+# Verknüpfen von Arrays
+
+Neben dem Zugriff auf Elemente oder Teile eines Arrays müssen mehrere Arrays oft zu einem verknüft werden. Hierzu werden meist die Funktionen *vstack* und *hstack* verwendet. Dabei verbindet *vstack* die Arrays in der ersten Dimension (Zeilenweise), während *hstack* Arrays in der zweiten Dimension (spaltenweise) zusammen fügt. Bei zweidimensionales Arrays sieht das wie folgt aus:
+
+```
+>>> a = np.array([[1,2,3],[4,5,6]])
+>>> b = np.array([[7,8,9],[10,11,12]])
+>>> np.hstack((a,b))
+[[1,2,3,7,8,9],[4,5,6,10,11,12]]
+>>> np.vstack((a,b))
+[[1,2,3],[4,5,6],[7,8,9],[10,11,12]]
+```
+
 # Plotten (matplotlib)
 
 Das Standard-Paket zum Plotten ist [matplotlib](https://matplotlib.org/). Es stellt mit pyplot MATLAB ähnliche Funktionen für einfaches, schnelles Plotten zur Verfügung. Weiterführende Funktionen und ein objektorientiertes Interface erlauben den vollen Zugriff auf Plot-Eigenschaften. Im Folgenden werden Grundlagen vorgestellt. Zunächst wird das pyplot-Interface eingebunden:
@@ -458,7 +506,7 @@ Dieses steht jetzt unter *plt* zur Verfügung. Ein erster Sinus-Plot wird wie fo
 >>> x = np.linspace(0, 2*np.pi)
 >>> y = np.sin(x)
 >>> plt.plot(x, y)
->>> plt.show() # im jupyter notebook nicht notwendig
+>>> plt.show()  im jupyter notebook nicht notwendig
 ```
 
 ![sinus-plot](images/sinus.png)
@@ -485,6 +533,48 @@ Als Beispiel werden Sinus- und Cosinus-Funktion im gleichen Plot angezeigt.
 
 
 # Sonstiges
+
+## Python Module
+
+Einfache Rechnungen lassen sich mit der Python-REPL durchführen. Um kleinere mehrfach genutzte Programme zu erstellen reicht meist eine einzelne Python-Datei zu verwenden. Bei komplexeren Programmen kann dies zu unübersichtlich werden. Deshalb werden solche Programme in mehrere Dateien aufgeteilt. So können außerdem Programmteile (Funktionen, Klassen, etc.) leichter in weiteren Programmen eingebunden und genutzt werden. Python-Dateien (mit Endung .py) werden auch als Module bezeichnet. Beispielsweise wird das Modul *meinmodul* durch erstellen der Datei *meinmodul.py* mit folgendem Inhalt erzeugt:
+
+```
+def hallo():
+    print('hallo')
+``` 
+
+Dieses Modul lässt sich jetzt mit *import* einbinden:
+
+```
+>>> import meinmodul
+>>> meinmodul.hallo()
+hallo
+```
+
+Voraussetzung ist, dass sich das Modul im Suchpfad befindet. Dieser enthält
+ - den Ordner des ausgeführten Skriptes oder den Ordner in dem der Python-Interpreter ausgeführt wird
+ - Installationsspezifische Suchpfade (enthalten Standardbibliothek und installierte Pakete)
+
+Von dem bereits genutzten *import* Befehl gibt es weitere Varianten:
+ - Import mit Alias
+```
+>>> import meinmodul as m
+>>> m.hallo()
+hallo
+```
+ - spezifische Elemente importieren
+```
+>>> from meinmodul import hallo
+>>> hallo()
+hallo
+```
+
+ - Zugriff auf spezifische Elemente über Alias
+```
+>>> from meinmodul import hallo as h
+>>> h()
+hallo
+```
 
 ## Minimierung/Optimierung (scipy)
 
