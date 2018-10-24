@@ -463,7 +463,7 @@ Beim Aufruf dieser Funktionen kann mithilfe des *axis* Parameters festgelegt üb
 >>> a = np.array([1,2,3])
 >>> np.sum(a)
 6
-´´´
+```
 
 Dagegen können zum Beispiel für ein zweidimensionales Array nur Zeilen oder Spalten aufaddiert werden:
 
