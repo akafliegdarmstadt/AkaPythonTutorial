@@ -16,6 +16,8 @@ Python gibt es momentan noch in zwei Versionen: Python 2 und Python 3. Die beide
 ### Prompt
 Es gibt veschiedene Arten und weisen ein Python-Befehle auszuführen. Die einfachste und schnellste Art und weise ist in einer Prompt. Eine Prompt ist ein CMD-Fenster in das man Python-Code schreiben kann, der sofort ausgeführt wird. Das ist praktisch um schnell kleine Programm-Schnipsel zu testen aber nicht um ein volles Programm zu schreiben.
 
+Unter Anaconda öffnet man eine Prompt mit dem Programm "Anaconda Prompt".
+
 Wir wollen so ein "Hallo Welt"-Programm testen. Öffnet man die Prompt kann man den Befehl um "Hallo Welt" auszugeben direkt eingeben. Aussehen sollte das so:
 ```
 >>>print("Hallo Welt!")
@@ -38,7 +40,9 @@ Eine komfortable Option in Python zu programmieren sind IPython/Jupyter Notebook
 Erstellt man einen Code Block mit der Schaltfläche mit dem Plus kann man dort den jeweilgen Teil des Programms eingeben und dann mit Shift+Enter ausführen.
 In einem Textblock kann auch LaTeX Math verwendet werden um Formeln darzustellen.
 
-## Variablen (Basis)
+Ein Notebook öffnet man unter Anaconda mit dem Programm "Jupyter Notebook". Bei dessen Ausführung sollte sich automatisch ein Browser öffnen, in dem ein Notebook ausgewählt werden kann.
+
+## Variablen
 Um ein paar Python ausdrücke auszuprobieren wollen wir ein paar einfache Rechnungen anstellen.
 Das funktioniert ziemlich genau wie man das Erwartet, bzw. von Matlab etc kennt.
 ```
