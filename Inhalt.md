@@ -16,9 +16,9 @@ Python gibt es momentan noch in zwei Versionen: Python 2 und Python 3. Die beide
 ### Prompt
 Es gibt veschiedene Arten und weisen ein Python-Befehle auszuführen. Die einfachste und schnellste Art und weise ist in einer Prompt. Eine Prompt ist ein CMD-Fenster in das man Python-Code schreiben kann, der sofort ausgeführt wird. Das ist praktisch um schnell kleine Programm-Schnipsel zu testen aber nicht um ein volles Programm zu schreiben.
 
-Unter Anaconda öffnet man eine Prompt mit dem Programm "Anaconda Prompt".
+Unter Anaconda öffnet man eine Prompt mit dem Programm "Anaconda Prompt". Darin kann dann "python" eingegeben werden um eine Python Prompt zu öffnen.
 
-Wir wollen so ein "Hallo Welt"-Programm testen. Öffnet man die Prompt kann man den Befehl um "Hallo Welt" auszugeben direkt eingeben. Aussehen sollte das so:
+Wir wollen so ein "Hallo Welt"-Programm testen. Öffnet man die Python Prompt kann man den Befehl um "Hallo Welt" auszugeben direkt eingeben. Aussehen sollte das so:
 ```
 >>>print("Hallo Welt!")
 Hallo Welt!
@@ -257,7 +257,7 @@ Die Länge einer Liste erfährt man durch die eingebaute Funktion 'len' (für le
 ```
 
 ### List Comprehensions
-Mit List comprehensions kann man Listen aus anderen Listen erzeugen. Man kann zum Beispiel einen Ausdruck auf jedes Element der Liste anwenden und daraus eine neue Liste erzeugen, und die Liste filter, also nur die Elemente übernehmen die einer Bedingung genügen.
+Mit List comprehensions kann man Listen aus anderen Listen erzeugen. Man kann zum Beispiel einen Ausdruck auf jedes Element der Liste anwenden und daraus eine neue Liste erzeugen, und die Liste filtern, also nur die Elemente übernehmen die einer Bedingung genügen.
 Eine List comprehension besteht aus eckigen Klammern in denen zunächst der anzuwendende Ausdruck steht, gefolgt von einem 'for'-Statement, welches die Variable kennzeichnet die die einzelnen Listenelemente darstellt, darauf können einzelne 'if'-Statements folgen, die etwaige bedingungen angeben.
 
 Wollen wir zum Beispiel alle Zahlen einer Liste quadrieren:
@@ -288,15 +288,78 @@ Dictionaries sind, wie Arrays, veränderbar und können erweitert werden. Zum er
 4
 ```
 
-## Funktionen
+## Methoden und Funktionen
 
-* normale Funktionsdefiniton
+Hat man sich jetzt einige Abläufe ausgedacht die das Programm durchlaufen soll, kommt man zwangsweise zu dem Punkt an dem man ein Stück code noch einmal ausführen möchte, allerdings mit anderen werten. Um den Code nicht einfach wiederholen zu müssen kann man ihn in einer Methode zusammenfassen.
+Wir wollen eine Methode schreiben, die beliebig oft das Wort "Bier" ausgibt und dabei Mitzählt. Wir übergeben der Methode als "Parameter" die Zahl "wie\_oft", die angibt wie oft "Bier" ausgegeben werden soll.
 
-* lambda Gerät
+```
+def sage_bier(wie_oft):
+  for i in range(wie_oft):
+    print(i, "Bier")
+```
 
-* call by reference/value
+Diese Methode können wir nun aufrufen und uns beliebig oft "Bier" ausgeben lassen. (Ein Satz der nur in der Informatik realistisch zu verwenden ist.)
 
-* sichtbarkeit global/lokal
+```
+>>> sage_bier(4)
+0 Bier
+1 Bier
+2 Bier
+3 Bier
+```
+
+Eine Funktion ist eine Methode, die einen Rückgabewert besitzt. Die also, einer mathematischen Funktion ähnlich, die Parameter verwendet um einen neuen Wert zu errechnen und dann an den Aufrufer zurückzuliefern.
+Eine Rückgabe in einer Funktion geschieht mit dem Befehl 'return'. Auf das return folgt dann der Rückgabewert.
+Wird return in einer Funktion aufgerufen wird die Ausführung der Funktion sofort beendet und zum Aufrufer zurückgekehrt.
+
+```
+def addiere_zwo(x):
+  return x+2
+```
+```
+>>> addiere_zwo(2)
+4
+```
+
+In zugegebenermaßen seltenen Fällen kann es nützlich sein eine Funktion "auf die schnelle" und unbenannt zu definieren. Dafür kann man lambda-expressions verwenden. Wir wollen nicht weiter ins Detail gehen, deshalb nur ein Beispiel.
+```
+>>> f = lambda x: x*2
+>>> f(2)
+4
+>>>(lambda x: x-2)(2)
+0
+```
+
+### Sichbarkeit
+Variablen sind nicht unendlich lange gültig. Eine Variable lebt nur in ihrem "Scope" (dt. Sichtarkeitsbereich). Befindet man sich außerhalb des Scopes einer Variable kann sie nicht mehr verwendet werden. Wird ein Variable innerhalb einer Funktion das erste mal definiert ist diese Funktion ihr Scope, er ist "lokal". Hat die Ausführung die Funktion verlassen ist die Variable ungültig. Eine Variable die im globalen Kontext definiert wurde hat einen globalen Scope und kann von überall in dem Programm verwendet werden. Dabei ist allerdings Vorsicht geboten, globale Variablen können Einfluss auf die Ausführung nehmen die nur schwer zu erkennen sind. So kann eine Funktion mit gleichen Parametern zwei mal unterschiedliche Rückgabewerte liefern.
+
+### Call by reference / Call by value
+Wird ein Parameter einer Funktion übergeben kann das, je nach Parameter, auf zwei Arten geschehen.
+
+Wird "by reference" übergeben handelt es sich um einen "Verweis" auf das eigentliche Objekt. Das hat zur Folge dass eine Änderung an dem Parameter auch auf die ursprüngliche Variable übertragen wird, die änderung bleibt also nicht lokal.
+Arrays werden zum Beispiel "by reference" übergeben.
+
+```
+>>> liste = [1,2,3]
+>>> def verarbeite_liste(l):
+      liste[0] = 0
+>>> verarbeite_liste(liste)
+>>> liste
+[0,2,3]
+```
+
+Wird "by value" übergeben sind änderungen nur lokal und übertragen sich nicht auf das ursprüngliche Objekt. "by value" werden alle primitiven Datentypen wie ints, floats, booleans und strings übergeben.
+```
+>>> n = 0
+>>> def verarbeite_zahl(x):
+      x = 1
+>>> verarbeite_zahl(n)
+>>> n
+0
+```
+
+Unter umständen ist es aber erwünscht Änderung lokal zu halten und nicht auf das ursprüngliche Objekt zu übertragen. Dazu muss man den Parameter kopieren. Bei Arrays geht das mit einem einfachen Slice. Für alle anderengg
 
 ## Klassen
 
