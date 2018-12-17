@@ -263,7 +263,7 @@ Eine List comprehension besteht aus eckigen Klammern in denen zunächst der anzu
 Wollen wir zum Beispiel alle Zahlen einer Liste quadrieren:
 ```
 >>> liste = [1,2,3]
->>> [x\*\*2 for x in liste]
+>>> [x**2 for x in liste]
 [1, 4, 9]
 ```
 
