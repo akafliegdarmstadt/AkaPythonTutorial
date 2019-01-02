@@ -173,6 +173,8 @@ else:
   print("Guten Abend.")
 ```
 
+Ist der Typ von Variablen unbekannt lässt sich dieser mit der Funktion *type* ermitteln.
+
 ## Schleifen
 Will man ein Stück Code öfter hintereinander ausführen benutzt man Schleifen. Die wichtige Schleife in Python ist die for-Schleife. Eine for-Schleife führt einen Code Block für jedes Element eines Containers aus (Ein Container ist sowas wie eine Menge/Liste, mehr später).
 Zunächst ist es wichtig dass wir eine Liste von Zahlen mit dem ```range``` Befehl erzeugen können.
