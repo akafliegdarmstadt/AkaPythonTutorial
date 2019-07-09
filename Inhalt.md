@@ -102,6 +102,16 @@ D-45
 1 + 2 = 3
 ```
 
+Alternativ gibt es die Möglichkeit f-strings zu verwenden. Diesen wird ein f vorangestellt. Im String kann dann innerhalb
+der '{}' Klammern Python Code verwendet werden, z.B. Dateinamen.
+```
+>>> projektnummer = 45
+>>> print(f"D-{projektnummer}")
+D-45
+>>> print(f"{1} + {2} = {1+2}"
+1 + 2 = 3
+```
+
 Eine weitere Art des Datentyps ist ein Wahrheitswert, genannt 'boolean'. Ein boolean kann entweder 'True' oder 'False' sein. Boolean sind insbesondere Interessant für If-Abfragen.
 Operatoren auf Boolean sind:
 * Und: ```&```
